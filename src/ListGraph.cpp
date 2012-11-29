@@ -12,7 +12,7 @@ ListGraph::ListGraph(int numNodes){
 ListGraph::~ListGraph(){
 }
 
-//TODO
+
 void ListGraph::addEdge(NodeID u, NodeID v, EdgeWeight weight){
 	
 }
