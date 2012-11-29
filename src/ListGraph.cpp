@@ -14,6 +14,16 @@ ListGraph::~ListGraph(){
 
 
 void ListGraph::addEdge(NodeID u, NodeID v, EdgeWeight weight){
+	// Do not check fo dupes, y'all
+	//EList::const_iterator it;
+	edgeList[u].push_back(std::make_pair(v,weight));
+	edgeList[v].push_back(std::make_pair(u,weight));
+	
+	
+	/*for(it=edgeList[u].begin(); it!=edgeList[u].end(); it++){
+		NWPair theEdge=*it;*/ // Not a pointer!
+		/*if(theEdge.first==v)
+		theEdge.second=weight;*/
 	
 }
 
