@@ -13,8 +13,8 @@ ListGraph::~ListGraph(){
 }
 
 //TODO
-void addEdge(NodeID u, NodeID v, EdgeWeight weight){
-
+void ListGraph::addEdge(NodeID u, NodeID v, EdgeWeight weight){
+	
 }
 
 //Developed in class
@@ -27,8 +27,6 @@ EdgeWeight ListGraph::weight(NodeID u, NodeID v) const{
 			return theEdge.second;
 	}
 	return 0.0;
-
-	
 }
 
 // ...also developed in class
@@ -36,17 +34,14 @@ std::list<NWPair> ListGraph::getAdj(NodeID u) const{
 	return edgeList[u];
 }
 
-//TODO
 unsigned ListGraph::degree(NodeID u) const{
-	return 0;
+	return edgeList[u].size();
 }
 
-//TODO
 unsigned ListGraph::size() const{
-	return 0;
+	return edgeList.size();
 }
 
-//TODO
 unsigned ListGraph::numEdges() const{
-	return 0;
+	return num_edges;
 }
