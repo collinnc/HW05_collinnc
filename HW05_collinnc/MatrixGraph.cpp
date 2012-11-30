@@ -6,15 +6,18 @@ MatrixGraph::MatrixGraph(unsigned num_nodes){
 	for(int i=0; i<num_nodes; i++){
 		M[i].resize(num_nodes);
 		for(int j=0;j<num_nodes;j++)
-			M[i][j] =-1;
+			M[i][j] =0;
 	}
+
+	num_edges=0;
 }
 MatrixGraph::~MatrixGraph(){
 }
 
 void MatrixGraph::addEdge(NodeID u, NodeID v, EdgeWeight weight){
 	M[u][v] = weight;
-	M[u][v] = weight;
+	M[v][u] = weight;
+	num_edges++;
 }
 
 EdgeWeight MatrixGraph::weight(NodeID u, NodeID v) const{
@@ -24,7 +27,7 @@ EdgeWeight MatrixGraph::weight(NodeID u, NodeID v) const{
 std::list<NWPair> MatrixGraph::getAdj(NodeID u) const{
 	std::list<NWPair>* ret = new std::list<NWPair>;
 	for(int  i= 0; i<M[u].size(); i++){
-		if(M[u][i]!=-1)
+		if(M[u][i]!=0)
 			ret->push_back(std::make_pair(i,M[u][i]));
 	}
 	return *ret;
@@ -35,7 +38,7 @@ unsigned MatrixGraph::degree(NodeID u) const{
 }
 
 unsigned MatrixGraph::size() const{
-	return M[0].size()*M[0].size();
+	return M.size();
 }
 
 unsigned MatrixGraph::numEdges() const{
