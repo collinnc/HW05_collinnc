@@ -1,4 +1,11 @@
 #include "MatrixGraph.h"
+/*
+*
+* @Author: Nick Collins
+* Implements the MatrixGraph.h, given by pre-written code
+* @Cite: Many of these methods were developed in class
+*
+*/
 
 MatrixGraph::MatrixGraph(unsigned num_nodes){
 	M.resize(num_nodes);
@@ -11,6 +18,7 @@ MatrixGraph::MatrixGraph(unsigned num_nodes){
 
 	num_edges=0;
 }
+
 MatrixGraph::~MatrixGraph(){
 }
 

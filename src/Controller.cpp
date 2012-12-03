@@ -128,6 +128,7 @@ int main(int argc, char** argv) {
 
   pair<int,int> p = testSpeedTSP(SB, 60, true);
 
+  //@sin: I may have added the following lines so the console would stay open. Maybe.
   string cat;
   cin>>cat;
   return 0;

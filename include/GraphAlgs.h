@@ -20,13 +20,12 @@
  *     Every pair of nodes u,v  (u != v) has an edge connecting the of weight > 0.
  */
 
+
+
+// Solves the Traveling sales person problem, in slow time.
+// By the "brute-force" method
 std::pair<std::vector<NodeID>, EdgeWeight> TSP(Graph* G);
 
-//void swap(int one, int two);
-
-//int factorial(int fac);
-
+// Findt the length (or total weight) of a tour
 EdgeWeight tourLength(std::vector<NodeID> path, Graph* G);
 
-
-//std::pair<std::vector<NodeID>,  EdgeWeight> tour(int* arr, int n, int startingPoint, int* ,Graph* G);

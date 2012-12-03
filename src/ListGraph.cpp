@@ -1,4 +1,13 @@
 // ListGraph.cpp
+/*
+*
+* @Author: Nick Collins
+* Implements the ListGraph.h, given by pre-written code
+* @Cite: Many of these methods were developed in class
+*
+*/
+
+
 
 #include "ListGraph.h"
 
@@ -14,17 +23,9 @@ ListGraph::~ListGraph(){
 
 
 void ListGraph::addEdge(NodeID u, NodeID v, EdgeWeight weight){
-	// Do not check fo dupes, y'all
-	//EList::const_iterator it;
 	edgeList[u].push_back(std::make_pair(v,weight));
 	edgeList[v].push_back(std::make_pair(u,weight));
 	num_edges++;
-	
-	/*for(it=edgeList[u].begin(); it!=edgeList[u].end(); it++){
-		NWPair theEdge=*it;*/ // Not a pointer!
-		/*if(theEdge.first==v)
-		theEdge.second=weight;*/
-	
 }
 
 //Developed in class

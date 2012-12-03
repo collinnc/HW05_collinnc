@@ -1,22 +1,34 @@
 // GraphAlgs.cpp
+/*
+*
+* @Author Nick Collins
+* @Date 12-3-2012
+* CSE 274B Fall 2012
+*
+*Solves the Traveling Sales Person Problem by 
+* the brute-force method
+*
+* @Cite: Brandon Sonoda for making me read the .h file and realize
+*	that this project is easier than I was making it.
+*	..and also for suggesting using the next_permutation method to 
+*	make my life easier.
+*
+* @note: Attempts goals: A, B, C, D
+*/
 #include "GraphAlgs.h"
 #include <algorithm>
 
 std::pair<std::vector<NodeID>, EdgeWeight> TSP(Graph* G){
-	/*std::vector<NodeID> vec;
-	float total_weight = 0;
-	vec.resize(G->size());*/
-
-	// setting it equal to DBL_MAX was taken from Sam Wolf
-	EdgeWeight bestTourLength = DBL_MAX;
+	
+	EdgeWeight bestTourLength;
 
 	std::vector<NodeID> bestTour, cur_tour;
-	//int* seenIDs = new int[G->size()];
 
 	bestTour.resize(G->size());
 	cur_tour.resize(G->size());
 
-	// Fill the "bestTour" with a sample tour, to be permutated
+	// Fill the "bestTour" with a sample tour, to be permutated,
+	// and populating cur_tour
 	for(int i =0; i<bestTour.size(); i++){
 		bestTour.at(i) = i;
 		cur_tour.at(i) = i;
@@ -25,33 +37,20 @@ std::pair<std::vector<NodeID>, EdgeWeight> TSP(Graph* G){
 	 bestTourLength = tourLength(bestTour, G);
 	 EdgeWeight cur_len = tourLength(cur_tour, G);
 
+	  // Loop uses the simple linear comparison method
+	 // next_permutation takes care of going through each possible path
 	 while(next_permutation(cur_tour.begin(), cur_tour.end())){
 		 
 		 cur_len = tourLength(cur_tour, G);
 		 
 		 if(cur_len < bestTourLength){
-
 			 bestTourLength = cur_len;
 			 bestTour = cur_tour;
-
 		 }
 	 }
 
-
-
 	return make_pair(bestTour, bestTourLength);
 }
-
-//void swap(int one, int two){
-//	int tmp = one;
-//	one = two;
-//	two = tmp;
-//}
-
-//int factorial(int fac){
-//	if(fac ==1) return 1;
-//	else return fac*factorial(fac-1);
-//}
 
 EdgeWeight tourLength(std::vector<NodeID> path, Graph* G){
 	 
@@ -65,9 +64,3 @@ EdgeWeight tourLength(std::vector<NodeID> path, Graph* G){
 
 	return sum;
 }
-
-
-//std::pair<std::vector<NodeID>,  EdgeWeight> tour(int* arr, int n, int startingPoint, Graph* G){
-//	if(n-startingPoint==1){
-//	}
-//}
